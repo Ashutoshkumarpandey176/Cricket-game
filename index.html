@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bat Ball Stump Game</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+
+  <h1>Bat Ball Stump Game</h1>
+
+  <button onclick="playGame('Bat')">Bat</button>
+  <button onclick="playGame('Ball')">Ball</button>
+  <button onclick="playGame('Stump')">Stump</button>
+
+  <script>
+    function playGame(userChoice) {
+      console.log(`You have chosen ${userChoice}`);
+
+      const choices = ['Bat', 'Ball', 'Stump'];
+      const randomIndex = Math.floor(Math.random() * 3);
+      const computerChoice = choices[randomIndex];
+
+      let resultMsg = '';
+
+      if (userChoice === computerChoice) {
+        resultMsg = "It's a Tie.";
+      } else if (
+        (userChoice === 'Bat' && computerChoice === 'Ball') ||
+        (userChoice === 'Ball' && computerChoice === 'Stump') ||
+        (userChoice === 'Stump' && computerChoice === 'Bat')
+      ) {
+        resultMsg = 'You Won!';
+      } else {
+        resultMsg = 'Computer Won!';
+      }
+
+      alert(`You chose ${userChoice}. Computer chose ${computerChoice}. ${resultMsg}`);
+    }
+  </script>
+
+</body>
+</html>
